@@ -3,7 +3,7 @@
 pkgname=sdl3
 _pkgname=SDL
 pkgver=3.2.28
-pkgrel=4
+pkgrel=${pkgrel:-0}
 pkgdesc="Simple Directmedia Layer"
 url="https://libsdl.org/"
 arch="all"
@@ -77,6 +77,7 @@ check() {
     ctest --test-dir build-shared -E "(testautomation|testautomation-no-simd)"
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 b10702190b8eeb403b91b2ecf3daf559045098373f14cc061478547503d33683c15b57f70fadc74146c441baf52f399856508bd10b76c452d55aec685aef1684  sdl3-3.2.28-r12.tar.gz
 "
